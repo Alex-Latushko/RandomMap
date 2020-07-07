@@ -16,6 +16,7 @@ class Map_QView : public QWidget
 private:
     void init_qlb_map();
     void free_qlb_map();
+    bool size_changed_qlb_map();
     void generate_map();
     void show_map();
 public:

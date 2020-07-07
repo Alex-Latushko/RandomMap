@@ -34,22 +34,25 @@ void Map_QView::generate_new_map(){ // slot
 
 void Map_QView::init_qlb_map(){
    LOG_DURATION("map_qlb_init");
-    QVector<QLabel*> row;
-    if (!map_qlb->empty()){
-        free_qlb_map();
-        map_qlb->clear();
-    }
-    for (int i = 0; i < settings->get_height(); ++i){
-        for (int j = 0; j < settings->get_width(); ++j){
-            QLabel* c = new QLabel;
-            c->resize(50, 50);
-            grid_layout->addWidget(c, i, j);
-            row.push_back(c);
-        }
-        map_qlb->push_back(row);
-        row.clear();
-    }
+   if ( size_changed_qlb_map()) {
 
+       QVector<QLabel*> row;
+        if (!map_qlb->empty()){
+            free_qlb_map();
+            map_qlb->clear();
+        }
+
+        for (int i = 0; i < settings->get_height(); ++i){
+            for (int j = 0; j < settings->get_width(); ++j){
+                QLabel* c = new QLabel;
+                c->resize(50, 50);
+                grid_layout->addWidget(c, i, j);
+                row.push_back(c);
+            }
+            map_qlb->push_back(row);
+            row.clear();
+        }
+   }
 }
 
 void Map_QView::free_qlb_map(){
@@ -64,6 +67,16 @@ void Map_QView::free_qlb_map(){
              *c = nullptr;
         }
     }
+}
+
+bool Map_QView::size_changed_qlb_map(){
+    int old_height = 0;
+    int old_width = 0;
+    if (!map_qlb->empty()){
+         old_height = map_qlb->size();
+         old_width = map_qlb->at(0).size();
+    }
+    return ( old_height != settings->get_height() || old_width != settings->get_width() );
 }
 
 void Map_QView::show_map(){
