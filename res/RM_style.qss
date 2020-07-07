@@ -1,0 +1,23 @@
+QCheckBox, QPushButton#Apply_Button, QLineEdit, SettingsWindow QLabel {
+	font-size: 20px;
+}
+
+QMenuBar {
+	background-color: rgb(200, 200, 200); 
+}
+
+QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QGroupBox::title {
+	subcontrol-position: top center;
+}
+
+QLineEdit {
+	max-width: 50px;
+}
+
+QCheckBox {
+	spacing: 20px;
+}

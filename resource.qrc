@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/my_images">
+        <file>res/Desert.jpg</file>
+        <file>res/Forest.jpg</file>
+        <file>res/Grassland.jpg</file>
+        <file>res/Mountains.jpg</file>
+        <file>res/Water.jpg</file>
+        <file>res/Swamp.jpg</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file>res/RM_style.qss</file>
+    </qresource>
+</RCC>
